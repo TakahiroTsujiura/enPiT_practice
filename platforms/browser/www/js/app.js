@@ -11,7 +11,25 @@
     $('.search-key').on('keyup', findByName);
     $('.help-btn').on('click', function() {
         alert("Employee Directory v3.4");
+        //window.alert();
+        //navigator.notification.alert()
+        //window.alert();
     });
+    
+    document.addEventListener('deviceready', function () {
+        if (navigator.notification) { // Override default HTML alert with native dialog 
+            FastClick.attach(document.body);
+            window.alert = function (message) {
+                navigator.notification.alert(
+                message,    // message
+                null,       // callback
+                "Workshop", // title
+                'OK'        // buttonName
+                );
+            };
+        }
+    }, false);
+
 
     /* ---------------------------------- Local Functions ---------------------------------- */
     function findByName() {
