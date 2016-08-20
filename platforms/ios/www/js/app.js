@@ -4,17 +4,25 @@
     /* ---------------------------------- Local Variables ---------------------------------- */
     var service = new EmployeeService();
     service.initialize().done(function () {
-        console.log("Service initialized");
+        renderHomeView();
     });
+    
+    
+    /*var service = new EmployeeService();
+    service.initialize().done(function () {
+        console.log("Service initialized");
+    });*/
 
     /* --------------------------------- Event Registration -------------------------------- */
-    $('.search-key').on('keyup', findByName);
-    $('.help-btn').on('click', function() {
-        alert("Employee Directory v3.4");
-        window.alert();
-        //navigator.notification.alert()
-        //window.alert();
-    });
+    /*$('.search-key').on('keyup', findByName);
+    function renderHomeView() {
+        var html =
+        "<h1>Directory</h1>" +
+        "<input class='search-key' type='search' placeholder='Enter name'/>" +
+        "<ul class='employee-list'></ul>";
+        $('body').html(html);
+        //$('.search-key').on('keyup', findByName);
+    }*/
     
     document.addEventListener('deviceready', function () {
         if (navigator.notification) { // Override default HTML alert with native dialog 
